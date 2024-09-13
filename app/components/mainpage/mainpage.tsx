@@ -1,8 +1,8 @@
 'use client'
-import Link from 'next/link';
 import 'aos/dist/aos.css'; // Import AOS styles
 import AOS from 'aos';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 export default function MainPage() {
   useEffect(() => {
