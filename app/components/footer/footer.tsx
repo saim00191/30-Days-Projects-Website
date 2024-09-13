@@ -2,6 +2,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
+import { FaEnvelope } from "react-icons/fa"; 
 export default function Footer() {
   return (
     <div>
@@ -41,6 +42,12 @@ export default function Footer() {
               target="_blank"
             >
               <FaLinkedinIn />
+            </a>
+            <a
+              href="mailto:saimamjad198@gmail.com" // Replace with your email
+              className="ml-4 text-gray-500 text-2xl cursor-pointer hover:text-gray-900"
+            >
+              <FaEnvelope />
             </a>
           </span>
         </div>
