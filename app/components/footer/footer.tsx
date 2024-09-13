@@ -14,16 +14,16 @@ export default function Footer() {
     <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Developed By <span className='font-bold'>Saim Amjad</span>
     </p>
     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-      <a href="" className="text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
+      <a href="https://www.facebook.com/saim.amjad.14" className="text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
         <FaFacebookF/>
       </a>
-      <a className="ml-4 text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
+      <a href="https://github.com/saim00191" className="ml-4 text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
         <FaGithub/>
       </a>
-      <a className="ml-4 text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
+      <a href="https://www.instagram.com/amjad_saim_9/" className="ml-4 text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
         <FaInstagram/>
       </a>
-      <a className="ml-4 text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
+      <a href="https://www.linkedin.com/in/saim-raza-b7a7172b6/" className="ml-4 text-gray-500 text-2xl cursor-pointer hover:text-gray-900">
         <FaLinkedinIn/>
       </a>
     </span>
