@@ -93,13 +93,13 @@ export default function CountDownTimer() {
         </h1>
 
         <div className="border-[7px] border-white rounded-2xl shadow-xl px-4 py-8 sm:py-12 md:px-8 lg:py-16 lg:px-12 w-full max-w-[400px] sm:max-w-[500px]">
-          <div className="border-[3px] rounded mb-4">
+          <div className="border-[3px] rounded mb-4 w-full">
             <input
               type="datetime-local"
               onChange={(e) => setTargetDate(e.target.value)}
               value={targetDate}
               disabled={isActive && isPaused}
-              className="text-gray-800 uppercase text-center font-bold w-full outline-none p-2 bg-white"
+              className="text-gray-800 uppercase text-center font-bold w-full outline-none p-2  bg-white"
             />
           </div>
           <div className="text-white font-mono mb-6 mt-4">
