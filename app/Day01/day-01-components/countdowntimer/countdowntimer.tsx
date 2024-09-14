@@ -5,7 +5,7 @@ import { FaCirclePause } from "react-icons/fa6";
 import { GrResume } from "react-icons/gr";
 import { BiReset } from "react-icons/bi";
 import bgImage from "../bgImage/bgImage.jpg";
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function CountDownTimer() {
   const [targetDate, setTargetDate] = useState<number | string>("");
@@ -35,7 +35,6 @@ export default function CountDownTimer() {
     } else {
       clearInterval(intervalRef.current as number);
     }
-
     return () => clearInterval(intervalRef.current as number);
   }, [isActive, isPaused]);
 
@@ -82,44 +81,40 @@ export default function CountDownTimer() {
   return (
     <>
       <div
-        className="flex flex-col items-center justify-center min-h-screen px-4 bg-cover bg-center"
+        className="flex flex-col items-center justify-center min-h-screen px-4 bg-white"
         style={{
           backgroundImage: `url(${bgImage.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        {/* Header */}
-        <h1 className="text-white text-center mb-4 uppercase text-2xl sm:text-3xl md:text-4xl font-extrabold">
+        <h1 className="text-white text-center mb-2 uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold">
           Count Down <span className="text-yellow-600">Timer</span>
         </h1>
 
-        {/* Timer Container */}
-        <div className="border-[7px] border-white rounded-2xl shadow-xl p-8 sm:py-16 sm:px-10 bg-gray-900 bg-opacity-70">
-          <div className="border-[3px] border-gray-300 rounded mb-6">
+        <div className="border-[7px] border-white rounded-2xl shadow-xl px-4 py-8 sm:py-12 md:px-8 lg:py-16 lg:px-12 w-full max-w-[400px] sm:max-w-[500px]">
+          <div className="border-[3px] rounded mb-4">
             <input
               type="datetime-local"
               onChange={(e) => setTargetDate(e.target.value)}
               value={targetDate}
               disabled={isActive && isPaused}
-              className="text-gray-800 bg-white uppercase text-center font-bold w-full p-3 text-lg sm:text-xl "
+              className="text-gray-800 uppercase text-center font-bold w-full outline-none p-2 bg-white"
             />
           </div>
-
-          {/* Timer Display */}
-          <div className="text-5xl sm:text-6xl md:text-7xl text-white font-mono mb-6">
-            <h1 className="font-bold">{formatTime(remainingTime)}</h1>
+          <div className="text-white font-mono mb-6 mt-4">
+            <h1 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] font-bold text-center">
+              {formatTime(remainingTime)}
+            </h1>
           </div>
-
-          {/* Times Up Message */}
           {message && (
-            <p className="text-red-600 font-semibold text-center mb-6 text-2xl">
+            <p className="text-red-600 font-semibold text-center mx-auto mb-8 text-lg">
               {message}
             </p>
           )}
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded flex justify-center items-center"
+              className="btn btn-primary font-bold bg-green-700 hover:bg-green-900 text-white py-2 px-6 text-base sm:text-lg"
               onClick={handleStart}
             >
               Start
@@ -127,42 +122,32 @@ export default function CountDownTimer() {
                 <FaArrowAltCircleUp />
               </span>
             </button>
-
             <button
-              className="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded flex justify-center items-center"
+              className="btn btn-primary font-bold bg-blue-700 hover:bg-blue-900 text-white py-2 px-6 text-base sm:text-lg"
               onClick={handlePause}
             >
               {isPaused ? (
-                <>
+                <div className="flex items-center">
                   Resume
-                  <span className="ml-2">
-                    <GrResume />
-                  </span>
-                </>
+                  <GrResume className="ml-2" />
+                </div>
               ) : (
-                <>
+                <div className="flex items-center">
                   Pause
-                  <span className="ml-2">
-                    <FaCirclePause />
-                  </span>
-                </>
+                  <FaCirclePause className="ml-2" />
+                </div>
               )}
             </button>
-
             <button
-              className="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded flex justify-center items-center"
+              className="btn btn-primary font-bold bg-red-700 hover:bg-red-900 text-white py-2 px-6 text-base sm:text-lg"
               onClick={handleReset}
             >
               Reset
-              <span className="ml-2">
-                <BiReset />
-              </span>
+              <BiReset className="ml-2" />
             </button>
           </div>
         </div>
-
-        {/* Back to Home Link */}
-        <div className="flex justify-center text-white text-center mt-6 text-xl">
+        <div className="flex justify-center text-lg sm:text-2xl text-white text-center mt-6 hover:underline">
           <Link href="/">Back to Home</Link>
         </div>
       </div>
