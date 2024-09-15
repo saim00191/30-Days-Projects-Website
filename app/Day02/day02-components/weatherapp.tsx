@@ -29,7 +29,8 @@ export default function Weather() {
   //get weather Function
   const getWeather = async () => {
     const api_key = process.env.NEXT_PUBLIC_WEATHER_API_KEY; // Use the environment variable
-    const api_url = `http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${location}`;
+    const api_url = `https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${location}`;
+
   
     if (location) {
       try {
