@@ -1,10 +1,8 @@
 
-import React from 'react'
+import BirthdayWishApp from './day03-components/birthday-wish-app'
 
-export default function Home() {
+export default function page() {
   return (
-    <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-    <h1 className='text-4xl font-bold text-white'>DAY03 COMING SOON!!</h1>
-</div>
+    <div><BirthdayWishApp/></div>
   )
 }
