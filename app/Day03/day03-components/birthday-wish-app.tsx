@@ -1,10 +1,22 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { Archivo_Black, Protest_Guerrilla } from "next/font/google";
 import { Fireworks } from "fireworks-js"; // Import the Fireworks class from the library
 import BgImage from './BgImage/bgImage.jpg'
-import Link from 'next/link'
 
+// Define the font loader at the module scope
+const archivo = Archivo_Black({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const mate = Protest_Guerrilla({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 export default function BirthdayWishApp() {
   // State variables for name, birthday, message, and fireworks visibility
@@ -21,12 +33,11 @@ export default function BirthdayWishApp() {
       const fireworks = new Fireworks(fireworksRef.current, {
         rocketsPoint: { min: 50, max: 50 }, // Fireworks launch from the center
         hue: { min: 0, max: 360 }, // Random hue colors for fireworks
-        speed: 4, // Speed of the fireworks
+        delay: { min: 30, max: 60 },
         acceleration: 1.05, // Acceleration of fireworks particles
         friction: 0.98, // Friction to reduce speed
         gravity: 1, // Gravity effect on particles
         particles: 100, // Number of particles per explosion
-        trace: 3, // Trace length of the fireworks
         explosion: 5, // Explosion strength
       });
 
@@ -47,7 +58,7 @@ export default function BirthdayWishApp() {
   };
 
   // Function to handle the form submission and determine the birthday message
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = (e:React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); // Prevent default form submission behavior
 
     // Get today's date and format it to MM-DD
@@ -120,60 +131,53 @@ export default function BirthdayWishApp() {
   };
 
   return (
-    <>
-      <div
-        className="relative min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
-        style={{ backgroundImage: `url(${BgImage.src})` }} // Background image for the app
-      >
-        {/* Display fireworks when the showFireworks state is true */}
-        {showFireworks && (
-          <div
-            ref={fireworksRef}
-            className="absolute inset-0 flex items-center justify-center z-50"
-          ></div>
-        )}
-  
-        <div className="bg-white border-[7px] rounded-lg shadow-lg p-8 w-full max-w-md mx-4 sm:mx-6 md:mx-8 lg:mx-12 z-10">
-          <h1 className="text-3xl font-bold mb-6 text-center">
-            🎂{" "}
-            <span className="text-4xl text-yellow-700">BIRTHDAY</span>
-            <span className="text-slate-800"> WISH</span>🎉
-            <span className="font-mono"> APP</span>🎉
-          </h1>
-  
-          {/* Form to collect user's name and birthday */}
-          <form className="flex flex-col items-center">
-            <input
-              onChange={(e) => setName(e.target.value)} // Update name state on change
-              type="text"
-              value={name}
-              placeholder="Enter your name"
-              className="w-full p-3 mb-4 border-2 border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            />
-            <input
-              onChange={(e) => setBirthday(e.target.value)} // Update birthday state on change
-              type="date"
-              className="w-full p-3 mb-4 border-2 border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            />
-            <button
-              onClick={handleSubmit} // Handle form submission
-              className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition-all duration-300"
-            >
-              Submit
-            </button>
-          </form>
-  
-          {/* Display the generated message */}
-          <p className="text-center text-xl text-gray-600 mb-4 mt-4 font-semibold">
-            {message}
-          </p>
-  
-          {/* Back to Home Link - moved just after the form and message */}
-          <div className="flex flex-col items-center justify-center text-lg sm:text-2xl text-black text-center mt-6 hover:underline">
-            <Link href="/">Back to Home</Link>
-          </div>
-        </div>
+    <div
+      className="relative min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
+      style={{ backgroundImage: `url(${BgImage.src})` }} // Background image for the app
+    >
+      {/* Display fireworks when the showFireworks state is true */}
+      {showFireworks && (
+        <div
+          ref={fireworksRef}
+          className="absolute inset-0 flex items-center justify-center z-50"
+        ></div>
+      )}
+
+      <div className="bg-white border-[7px] rounded-lg shadow-lg p-8 w-full max-w-md mx-4 sm:mx-6 md:mx-8 lg:mx-12 z-10">
+        <h1 className="text-3xl font-bold mb-6 text-center">
+          🎂{" "}
+          <span className={`${mate.className} text-4xl text-yellow-700`}>
+            BIRTHDAY
+          </span>
+          <span className={`${archivo.className} text-slate-800`}> WISH</span>🎉
+          <span className="font-mono"> APP</span>🎉
+        </h1>
+        {/* Form to collect user's name and birthday */}
+        <form className="flex flex-col items-center">
+          <input
+            onChange={(e) => setName(e.target.value)} // Update name state on change
+            type="text"
+            value={name}
+            placeholder="Enter your name"
+            className="w-full p-3 mb-4 border-2 border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          />
+          <input
+            onChange={(e) => setBirthday(e.target.value)} // Update birthday state on change
+            type="date"
+            className="w-full p-3 mb-4 border-2 border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          />
+          <button
+            onClick={handleSubmit} // Handle form submission
+            className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition-all duration-300"
+          >
+            Submit
+          </button>
+        </form>
+        {/* Display the generated message */}
+        <p className="text-center text-xl text-gray-600 mb-4 mt-4 font-semibold">
+          {message}
+        </p>
       </div>
-    </>
+    </div>
   );
-}  
+}
