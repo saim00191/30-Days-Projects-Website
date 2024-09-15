@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Fireworks } from "fireworks-js"; // Import the Fireworks class from the library
 import BgImage from './BgImage/bgImage.jpg'
-
+import Link from 'next/link'
 
 
 export default function BirthdayWishApp() {
@@ -167,6 +167,9 @@ export default function BirthdayWishApp() {
           {message}
         </p>
       </div>
+      <div className="flex justify-center text-lg sm:text-2xl text-white text-center mt-6 hover:underline">
+          <Link href="/">Back to Home</Link>
+        </div>
     </div>
   );
 }
