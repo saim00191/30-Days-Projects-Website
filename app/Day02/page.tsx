@@ -1,10 +1,11 @@
 
 import React from 'react'
+import Weather from './day02-components/weatherapp'
 
 export default function Home() {
   return (
-    <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-    <h1 className='text-4xl font-bold text-white'>DAY02 COMING SOON!!</h1>
-</div>
+    <div>
+      <Weather/>
+    </div>
   )
 }
