@@ -47,7 +47,7 @@ export default function BirthdayWishApp() {
   };
 
   // Function to handle the form submission and determine the birthday message
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); // Prevent default form submission behavior
 
     // Get today's date and format it to MM-DD
