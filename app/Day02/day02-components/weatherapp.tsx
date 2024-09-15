@@ -28,10 +28,9 @@ export default function Weather() {
 
   //get weather Function
   const getWeather = async () => {
-    //api key and url
-    const api_key = "e5061ca4fb524bcc8c654443240309";
+    const api_key = process.env.NEXT_PUBLIC_WEATHER_API_KEY; // Use the environment variable
     const api_url = `http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${location}`;
-
+  
     if (location) {
       try {
         const response = await axios.get(api_url);
@@ -41,7 +40,7 @@ export default function Weather() {
             location: { name, country },
             current: { temp_c, condition, humidity, wind_kph },
           } = response.data;
-
+  
           // Set up the fetched weather data
           setWeather({
             name,
@@ -58,10 +57,11 @@ export default function Weather() {
       } catch (error) {
         setError("Failed to Fetch Weather Data. Please try again.");
         setWeather(null); // Clear the weather data if an error occurred
-        setLocation(""); // Clear the location input if an error occured
+        setLocation(""); // Clear the location input if an error occurred
       }
     }
   };
+  
   return (
     <>
       {/* Main container */}
