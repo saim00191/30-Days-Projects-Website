@@ -8,7 +8,7 @@ export default function NumberGuessingGame() {
     // Randomly generates a target number between 1 and 50
     () => Math.floor(Math.random() * 50) + 1
   );
-  const [guess, setGuess] = useState(0); // Holds the user's current guess
+  const [guess, setGuess] = useState("0"); // Holds the user's current guess
   const [attempts, setAttempts] = useState(0); // Counts the number of attempts
   const [message, setMessage] = useState(""); // Displays messages to the user
   const [isGameOver, setIsGameOver] = useState(false); // Tracks if the game is over
@@ -31,7 +31,7 @@ export default function NumberGuessingGame() {
       );
       // Reset the game state after reaching the maximum attempts
       setTargetNumber(Math.floor(Math.random() * 50) + 1);
-      setGuess(0);
+      setGuess("0");
       setAttempts(0);
       setIsGameOver(true); // Set the game as over
       return;
@@ -58,7 +58,7 @@ export default function NumberGuessingGame() {
   const resetGame = () => {
     // Reset the game state
     setTargetNumber(Math.floor(Math.random() * 50) + 1);
-    setGuess(0);
+    setGuess("0");
     setAttempts(0);
     setMessage("");
     setIsGameOver(false); // Re-enable the Guess button for a new game
@@ -92,7 +92,7 @@ export default function NumberGuessingGame() {
               placeholder="Enter Your Guess"
               value={guess}
               className="w-full md:w-68 p-2 border-2 border-blue-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onChange={(e: any) => setGuess(e.target.value)} // Updates the guess state when the user types
+              onChange={(e) => setGuess(e.target.value)} // Updates the guess state when the user types
               disabled={isGameOver} // Disable input if the game is over
             />
           </div>
