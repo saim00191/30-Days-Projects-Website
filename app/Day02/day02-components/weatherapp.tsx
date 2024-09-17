@@ -7,6 +7,7 @@ import axios from "axios"; //Axios is a promise-based HTTP client for the browse
 import { WeatherDataTypes, EventTypes } from "./weatherappTypes"; // import Types
 import BgImage from './BgImage/bg-image.jpg'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Weather() {
   //Use States
@@ -109,7 +110,7 @@ export default function Weather() {
           {/* Weather display */}
           {weather && (
             <div className="text-white flex flex-col items-center mt-4 sm:mt-6">
-              <img
+              <Image
                 src={weather.conditionIcon}
                 alt="Weather Icon"
                 className="w-16 h-16 sm:w-24 sm:h-24 mb-3 sm:mb-4"
