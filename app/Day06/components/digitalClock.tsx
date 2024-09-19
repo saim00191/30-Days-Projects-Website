@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import Link from'next/link'
 export default function DigitalClock() {
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
@@ -50,6 +50,11 @@ export default function DigitalClock() {
         </div>
         <div className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold lg:text-4xl text-gray-300">
           {date}
+              </div>
+              <div className="relative text-lg sm:text-xl text-white mt-8 text-center">
+          <Link href="/" className="hover:underline">
+            Back to Home
+          </Link>
         </div>
       </div>
     </div>

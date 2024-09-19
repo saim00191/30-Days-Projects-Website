@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Archivo_Black, Protest_Guerrilla } from "next/font/google";
 import { Fireworks } from "fireworks-js"; // Import the Fireworks class from the library
 import BgImage from './BgImage/bgImage.jpg'
+import Link from 'next/link'
 
 // Define the font loader at the module scope
 const archivo = Archivo_Black({
@@ -142,7 +143,7 @@ export default function BirthdayWishApp() {
           className="absolute inset-0 flex items-center justify-center z-50"
         ></div>
       )}
-
+  
       <div className="bg-white border-[7px] rounded-lg shadow-lg p-8 w-full max-w-md mx-4 sm:mx-6 md:mx-8 lg:mx-12 z-10">
         <h1 className="text-3xl font-bold mb-6 text-center">
           🎂{" "}
@@ -177,7 +178,14 @@ export default function BirthdayWishApp() {
         <p className="text-center text-xl text-gray-600 mb-4 mt-4 font-semibold">
           {message}
         </p>
+        {/* "Back to Home" link */}
+        <div className="relative text-lg sm:text-xl text-black mt-6 text-center">
+          <Link href="/" className="hover:underline">
+            Back to Home
+          </Link>
+        </div>
       </div>
     </div>
   );
+  
 }
