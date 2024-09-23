@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function ColorPicker() {
   const [color, setColor] = useState("#ffffff");
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: {target :{value : string}}) => {
     setColor(event.target.value);
   };
 
