@@ -1,9 +1,11 @@
+import PasswordGenerator from "./components/password-generator"
 
-
-export default function Home() {
+const Home = () => {
   return (
-    <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-    <h1 className='text-4xl font-bold text-white'>DAY10 COMING SOON!!</h1>
-</div>
+    <div>
+      <PasswordGenerator/>
+    </div>
   )
 }
+
+export default Home
