@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { UnitConversions } from "./types";
 import { conversion } from "./conversionRates";
 
 // The main component for the Unit Converter app
