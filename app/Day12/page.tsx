@@ -1,8 +1,14 @@
-export default function Home() {
-    return (
-      <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-      <h1 className='text-4xl font-bold text-white'>DAY12 COMING SOON!!</h1>
-  </div>
-    )
-  }
+  
+
+import UnitConverter from './components/unit-converter-app'
+
+const Home = () => {
+  return (
+    <div>
+      <UnitConverter/>
+    </div>
+  )
+}
+
+export default Home
   
