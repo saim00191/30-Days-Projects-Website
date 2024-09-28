@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { useState } from "react"
 
 const HTMLPreviewApp = () => {
@@ -52,8 +53,15 @@ const HTMLPreviewApp = () => {
                 ></iframe>
               </div>
             </div>
-      
-          </div>
+            </div>
+            <div className="mt-8 w-full text-center">
+          <Link
+            href="/"
+            className="hover:underline text-lg sm:text-xl text-black"
+          >
+            Back to Home
+          </Link>
+        </div>
         </div>
       );
 }
