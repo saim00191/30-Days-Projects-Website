@@ -1,8 +1,11 @@
-export default function Home() {
-    return (
-      <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-      <h1 className='text-4xl font-bold text-white'>DAY13 COMING SOON!!</h1>
-  </div>
-    )
-  }
-  
+
+import React from 'react'
+import HTMLPreviewApp from './components/html-preview-app'
+
+const Home = () => {
+  return (
+    <div><HTMLPreviewApp/></div>
+  )
+}
+
+export default Home
