@@ -4,7 +4,6 @@ import ExpenseModal from "./ExpenseModal"; // Importing ExpenseModal component
 import { ExpenseListTypes } from "./types"; // Importing ExpenseListTypes type
 import { FaEdit, FaPlus } from "react-icons/fa"; // Importing icons for edit and add
 import { MdDelete } from "react-icons/md"; // Importing delete icon
-import Link from "next/link";
 
 // Main ExpenseList component definition
 export default function ExpenseList() {

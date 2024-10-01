@@ -33,7 +33,7 @@ export default function PomodoroTimer() {
       setIsRunning(false);
     }
     return () => clearTimeout(timer);
-  }, [isRunning, timeLeft]);
+  }, [isRunning, timeLeft , mode]);
 
   const handleStart = () => {
     setIsRunning(true);
