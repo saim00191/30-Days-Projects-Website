@@ -1,8 +1,13 @@
-export default function Home() {
-    return (
-      <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-      <h1 className='text-4xl font-bold text-white'>DAY15 COMING SOON!!</h1>
-  </div>
-    )
-  }
-  
+
+import React from 'react'
+import ExpenseList from './components/ExpenseList'
+
+const Home = () => {
+  return (
+    <div>
+      <ExpenseList/>
+    </div>
+  )
+}
+
+export default Home
