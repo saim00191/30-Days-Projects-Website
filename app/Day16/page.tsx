@@ -1,10 +1,13 @@
 
+import React from 'react'
+import MovieSearchApp from './components/movie-search-app'
 
-export default function Home() {
-    return (
-      <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-      <h1 className='text-4xl font-bold text-white'>DAY16 COMING SOON!!</h1>
-  </div>
-    )
-  }
-  
+const Home = () => {
+  return (
+    <div>
+      <MovieSearchApp/>
+    </div>
+  )
+}
+
+export default Home
