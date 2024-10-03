@@ -1,10 +1,13 @@
 
+import React from 'react'
+import MemeGenerator from './components/meme-generator'
 
-export default function Home() {
-    return (
-      <div className='bg-slate-600 min-h-screen flex justify-center items-center'>
-      <h1 className='text-4xl font-bold text-white'>DAY17 COMING SOON!!</h1>
-  </div>
-    )
-  }
-  
+const Home = () => {
+  return (
+    <div>
+      <MemeGenerator/>
+    </div>
+  )
+}
+
+export default Home
