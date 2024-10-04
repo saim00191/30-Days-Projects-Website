@@ -25,7 +25,6 @@ const Text = () => {
             >
               Save
             </button>
-           
           </div>
         ) : (
           <h1

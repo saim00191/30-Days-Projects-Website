@@ -2,16 +2,23 @@
 import dynamic from 'next/dynamic';
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { exportComponentAsJPEG } from "react-component-export-image";
 
+// Dynamically import the Text component to ensure it only runs on the client side
 const DynamicText = dynamic(() => import('@/app/Day17/components/Text'), { ssr: false });
+import Image from 'next/image';
 
 const EditPage = () => {
   const params = useSearchParams();
   const imageUrl = params.get("url");
   const [count, setCount] = useState(0);
   const memeRef = useRef(null);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const addText = () => {
     if (count === 5) {
@@ -29,17 +36,23 @@ const EditPage = () => {
     }
   };
 
+  if (!isClient) {
+    return null; // Prevent rendering on the server
+  }
+
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-200 p-4">
       <div className="w-4/12 p-12 border border-gray-400">
         <div ref={memeRef} className="relative">
           {imageUrl ? (
             <div className="border-4 border-gray-400 rounded-lg">
-              <img
+              <Image
                 src={imageUrl}
                 alt="Param"
                 className="object-cover rounded-lg"
-                style={{ width: "100%", height: "auto" }}
+                layout="responsive"
+                width={500} // Adjust width and height as necessary
+                height={300}
               />
             </div>
           ) : (
