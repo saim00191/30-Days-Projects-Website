@@ -19,6 +19,15 @@ const EditPage = () => {
     setCount(count + 1);
   };
 
+
+  const handleDownload = () => {
+    if (memeRef.current) {
+      exportComponentAsJPEG(memeRef);
+    } else {
+      alert("Meme is not ready for download.");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-200 p-4">
       <div className="w-4/12 p-12 border border-gray-400">
@@ -52,13 +61,7 @@ const EditPage = () => {
           Add Text
         </button>
         <button
-          onClick={() => {
-            if (memeRef.current) {
-              exportComponentAsJPEG(memeRef);
-            } else {
-              alert("Meme is not ready for download.");
-            }
-          }}
+          onClick={handleDownload} // Changed to use handleDownload function
           className="w-full p-4 my-4 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 transition duration-200"
         >
           Download Meme
