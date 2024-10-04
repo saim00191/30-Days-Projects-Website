@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { exportComponentAsJPEG } from "react-component-export-image";
+import Image from 'next/image';
 
 // Dynamically import the Text component to ensure it only runs on the client side
 const DynamicText = dynamic(() => import('@/app/Day17/components/Text'), { ssr: false });
-import Image from 'next/image';
 
 const EditPage = () => {
   const params = useSearchParams();
@@ -36,8 +36,9 @@ const EditPage = () => {
     }
   };
 
+  // Prevent rendering on the server
   if (!isClient) {
-    return null; // Prevent rendering on the server
+    return null;
   }
 
   return (
@@ -51,8 +52,8 @@ const EditPage = () => {
                 alt="Param"
                 className="object-cover rounded-lg"
                 layout="responsive"
-                width={500} // Adjust width and height as necessary
-                height={300}
+                width={500} // Adjust width as necessary
+                height={300} // Adjust height as necessary
               />
             </div>
           ) : (
