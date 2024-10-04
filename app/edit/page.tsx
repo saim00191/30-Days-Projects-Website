@@ -1,9 +1,11 @@
 "use client";
-import Text from "@/app/Day17/components/Text";
+import dynamic from 'next/dynamic';
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState, useRef } from "react";
 import { exportComponentAsJPEG } from "react-component-export-image";
+
+const DynamicText = dynamic(() => import('@/app/Day17/components/Text'), { ssr: false });
 
 const EditPage = () => {
   const params = useSearchParams();
@@ -18,7 +20,6 @@ const EditPage = () => {
     }
     setCount(count + 1);
   };
-
 
   const handleDownload = () => {
     if (memeRef.current) {
@@ -48,7 +49,7 @@ const EditPage = () => {
             {Array(count)
               .fill(0)
               .map((_, index) => (
-                <Text key={index} />
+                <DynamicText key={index} />
               ))}
           </div>
         </div>
@@ -61,7 +62,7 @@ const EditPage = () => {
           Add Text
         </button>
         <button
-          onClick={handleDownload} // Changed to use handleDownload function
+          onClick={handleDownload}
           className="w-full p-4 my-4 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 transition duration-200"
         >
           Download Meme
